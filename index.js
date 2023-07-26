@@ -91,3 +91,31 @@ const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   return password
 }
  
+const convertRomanToInt =(number) => {
+
+  const roman = {
+    I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000,
+    IV: 4, IX: 9, XL: 40, XC: 90, CD: 400, CM: 900
+  };
+
+  let result = 0;
+  let i = 0;
+
+
+  while (i < number.length) {
+    if (i + 1 < number.length && number.substring(i, i + 2) in roman) {
+      result += roman[number.substring(i, i + 2)];
+      i += 2;
+    } else {
+      result += roman[number.charAt(i)];
+      i += 1;
+    }
+  }
+
+  return result
+}
+
+const secondSmallest = (arr) => {
+  const newArr = arr.sort((x,y) => x - y );
+  return newArr[1]
+}
